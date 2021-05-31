@@ -168,8 +168,9 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
+              
 
-              <time title="Created: 2021-05-31 15:51:37" itemprop="dateCreated datePublished" datetime="2021-05-31T15:51:37+08:00">2021-05-31</time>
+              <time title="Created: 2021-05-31 15:51:37 / Modified: 15:53:58" itemprop="dateCreated datePublished" datetime="2021-05-31T15:51:37+08:00">2021-05-31</time>
             </span>
 
           
@@ -183,7 +184,33 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          
+          <h1 id="Recomend-Sys-Learning-points"><a href="#Recomend-Sys-Learning-points" class="headerlink" title="Recomend Sys Learning points"></a>Recomend Sys Learning points</h1><h4 id="候选生成的三种判断方式（相似性计算）："><a href="#候选生成的三种判断方式（相似性计算）：" class="headerlink" title="候选生成的三种判断方式（相似性计算）："></a>候选生成的三种判断方式（相似性计算）：</h4><ol>
+<li>cosine：角度越接近的越类似；</li>
+<li>dot：向量点乘，$s(q,x)=||q||||x||cos(q,x)$</li>
+<li>Euclidean distance：欧氏几何距离</li>
+</ol>
+<p>使用dot来计算相似性，可能会使得受欢迎的物品被更多的推荐，因为该item的norm会更大，所以有时候也会采用consine的方式来计算相似性</p>
+<h4 id="基于内容的过滤"><a href="#基于内容的过滤" class="headerlink" title="基于内容的过滤"></a>基于内容的过滤</h4><ol>
+<li>将不同商品用向量表示，将该用户的特征用向量表示</li>
+<li>采用dot方式计算商品与用户间的相似性，选择dot后乘积最大的作为推荐的物品</li>
+</ol>
+<h4 id="协同过滤"><a href="#协同过滤" class="headerlink" title="协同过滤"></a>协同过滤</h4><ol>
+<li><p>矩阵分解的方式：</p>
+<ol>
+<li><p>user embedding和item embedding相乘得到用户对每个物品预测的喜爱度</p>
+</li>
+<li><p>与原本观察得到的feedback矩阵相比较（0-1矩阵–用户看过标记为1，没有看过标记为0）</p>
+</li>
+<li><p>可以采用SVD算法，最小化误差函数，来更新user和item的ebedding</p>
+</li>
+<li><p>可以使用SGD（Stochastic gradient descent）来最小化损失函数；</p>
+</li>
+<li><p>或者使用WALS（weighted alternating least quares）</p>
+</li>
+</ol>
+</li>
+</ol>
+
       
     </div>
 
