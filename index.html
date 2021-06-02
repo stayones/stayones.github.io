@@ -176,7 +176,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-06-02 19:46:07" itemprop="dateModified" datetime="2021-06-02T19:46:07+08:00">2021-06-02</time>
+                <time title="Modified: 2021-06-02 19:47:24" itemprop="dateModified" datetime="2021-06-02T19:47:24+08:00">2021-06-02</time>
               </span>
 
           
@@ -194,7 +194,9 @@
 <h4 id="候选生成的三种判断方式相似性计算"><a class="markdownIt-Anchor" href="#候选生成的三种判断方式相似性计算"></a> 候选生成的三种判断方式（相似性计算）：</h4>
 <ol>
 <li>cosine：角度越接近的越类似；</li>
-<li>dot：向量点乘，$$s(q,x)=||q||||x||cos(q,x)$$</li>
+<li>dot：向量点乘<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>s</mi><mo stretchy="false">(</mo><mi>q</mi><mo separator="true">,</mo><mi>x</mi><mo stretchy="false">)</mo><mo>=</mo><mi mathvariant="normal">∣</mi><mi mathvariant="normal">∣</mi><mi>q</mi><mi mathvariant="normal">∣</mi><mi mathvariant="normal">∣</mi><mi mathvariant="normal">∣</mi><mi mathvariant="normal">∣</mi><mi>x</mi><mi mathvariant="normal">∣</mi><mi mathvariant="normal">∣</mi><mi>c</mi><mi>o</mi><mi>s</mi><mo stretchy="false">(</mo><mi>q</mi><mo separator="true">,</mo><mi>x</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">s(q,x)=||q||||x||cos(q,x)
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">s</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.03588em;">q</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">x</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">∣</span><span class="mord">∣</span><span class="mord mathdefault" style="margin-right:0.03588em;">q</span><span class="mord">∣</span><span class="mord">∣</span><span class="mord">∣</span><span class="mord">∣</span><span class="mord mathdefault">x</span><span class="mord">∣</span><span class="mord">∣</span><span class="mord mathdefault">c</span><span class="mord mathdefault">o</span><span class="mord mathdefault">s</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.03588em;">q</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">x</span><span class="mclose">)</span></span></span></span></span></p>
+</li>
 <li>Euclidean distance：欧氏几何距离</li>
 </ol>
 <p>使用dot来计算相似性，可能会使得受欢迎的物品被更多的推荐，因为该item的norm会更大，所以有时候也会采用consine的方式来计算相似性</p>
