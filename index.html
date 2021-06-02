@@ -184,28 +184,38 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="Recommend-Sys-Learning-points"><a href="#Recommend-Sys-Learning-points" class="headerlink" title="Recommend Sys Learning points"></a>Recommend Sys Learning points</h1><h4 id="候选生成的三种判断方式（相似性计算）："><a href="#候选生成的三种判断方式（相似性计算）：" class="headerlink" title="候选生成的三种判断方式（相似性计算）："></a>候选生成的三种判断方式（相似性计算）：</h4><ol>
+          <h1 id="recommend-sys-learning-points"><a class="markdownIt-Anchor" href="#recommend-sys-learning-points"></a> Recommend Sys Learning points</h1>
+<h4 id="候选生成的三种判断方式相似性计算"><a class="markdownIt-Anchor" href="#候选生成的三种判断方式相似性计算"></a> 候选生成的三种判断方式（相似性计算）：</h4>
+<ol>
 <li>cosine：角度越接近的越类似；</li>
-<li>dot：向量点乘，$s(q,x)=||q||||x||cos(q,x)$</li>
+<li>dot：向量点乘，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>s</mi><mo stretchy="false">(</mo><mi>q</mi><mo separator="true">,</mo><mi>x</mi><mo stretchy="false">)</mo><mo>=</mo><mi mathvariant="normal">∣</mi><mi mathvariant="normal">∣</mi><mi>q</mi><mi mathvariant="normal">∣</mi><mi mathvariant="normal">∣</mi><mi mathvariant="normal">∣</mi><mi mathvariant="normal">∣</mi><mi>x</mi><mi mathvariant="normal">∣</mi><mi mathvariant="normal">∣</mi><mi>c</mi><mi>o</mi><mi>s</mi><mo stretchy="false">(</mo><mi>q</mi><mo separator="true">,</mo><mi>x</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">s(q,x)=||q||||x||cos(q,x)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">s</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.03588em;">q</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">x</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">∣</span><span class="mord">∣</span><span class="mord mathdefault" style="margin-right:0.03588em;">q</span><span class="mord">∣</span><span class="mord">∣</span><span class="mord">∣</span><span class="mord">∣</span><span class="mord mathdefault">x</span><span class="mord">∣</span><span class="mord">∣</span><span class="mord mathdefault">c</span><span class="mord mathdefault">o</span><span class="mord mathdefault">s</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.03588em;">q</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">x</span><span class="mclose">)</span></span></span></span></li>
 <li>Euclidean distance：欧氏几何距离</li>
 </ol>
 <p>使用dot来计算相似性，可能会使得受欢迎的物品被更多的推荐，因为该item的norm会更大，所以有时候也会采用consine的方式来计算相似性</p>
-<h4 id="基于内容的过滤"><a href="#基于内容的过滤" class="headerlink" title="基于内容的过滤"></a>基于内容的过滤</h4><ol>
+<h4 id="基于内容的过滤"><a class="markdownIt-Anchor" href="#基于内容的过滤"></a> 基于内容的过滤</h4>
+<ol>
 <li>将不同商品用向量表示，将该用户的特征用向量表示</li>
 <li>采用dot方式计算商品与用户间的相似性，选择dot后乘积最大的作为推荐的物品</li>
 </ol>
-<h4 id="协同过滤"><a href="#协同过滤" class="headerlink" title="协同过滤"></a>协同过滤</h4><ol>
-<li><p>矩阵分解的方式：</p>
+<h4 id="协同过滤"><a class="markdownIt-Anchor" href="#协同过滤"></a> 协同过滤</h4>
 <ol>
-<li><p>user embedding和item embedding相乘得到用户对每个物品预测的喜爱度</p>
+<li>
+<p>矩阵分解的方式：</p>
+<ol>
+<li>
+<p>user embedding和item embedding相乘得到用户对每个物品预测的喜爱度</p>
 </li>
-<li><p>与原本观察得到的feedback矩阵相比较（0-1矩阵–用户看过标记为1，没有看过标记为0）</p>
+<li>
+<p>与原本观察得到的feedback矩阵相比较（0-1矩阵–用户看过标记为1，没有看过标记为0）</p>
 </li>
-<li><p>可以采用SVD算法，最小化误差函数，来更新user和item的ebedding</p>
+<li>
+<p>可以采用SVD算法，最小化误差函数，来更新user和item的ebedding</p>
 </li>
-<li><p>可以使用SGD（Stochastic gradient descent）来最小化损失函数；</p>
+<li>
+<p>可以使用SGD（Stochastic gradient descent）来最小化损失函数；</p>
 </li>
-<li><p>或者使用WALS（weighted alternating least quares）</p>
+<li>
+<p>或者使用WALS（weighted alternating least quares）</p>
 </li>
 </ol>
 </li>
@@ -268,17 +278,18 @@
 
       
           <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
+<h2 id="quick-start"><a class="markdownIt-Anchor" href="#quick-start"></a> Quick Start</h2>
+<h3 id="create-a-new-post"><a class="markdownIt-Anchor" href="#create-a-new-post"></a> Create a new post</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
 <p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
+<h3 id="run-server"><a class="markdownIt-Anchor" href="#run-server"></a> Run server</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
 <p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
+<h3 id="generate-static-files"><a class="markdownIt-Anchor" href="#generate-static-files"></a> Generate static files</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
 <p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
+<h3 id="deploy-to-remote-sites"><a class="markdownIt-Anchor" href="#deploy-to-remote-sites"></a> Deploy to remote sites</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
 <p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 
       
