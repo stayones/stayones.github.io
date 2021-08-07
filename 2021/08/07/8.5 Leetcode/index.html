@@ -20,15 +20,21 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta property="og:type" content="website">
+  <meta name="description" content="8.5 Leetcode  Path Sum II Given the root of a binary tree and an integer targetSum, return all root-to-leaf paths where each path’s sum equals targetSum. A leaf is a node with no children.  Constrain">
+<meta property="og:type" content="article">
 <meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/archives/2021/07/index.html">
+<meta property="og:url" content="http://example.com/2021/08/07/8.5%20Leetcode/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="8.5 Leetcode  Path Sum II Given the root of a binary tree and an integer targetSum, return all root-to-leaf paths where each path’s sum equals targetSum. A leaf is a node with no children.  Constrain">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/Users/wendy/Library/Application%20Support/CleanShot/media/media_wAhqummgCH/CleanShot%202021-08-07%20at%2014.14.17@2x.png">
+<meta property="article:published_time" content="2021-08-07T06:15:01.288Z">
+<meta property="article:modified_time" content="2021-08-07T06:15:01.288Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/Users/wendy/Library/Application%20Support/CleanShot/media/media_wAhqummgCH/CleanShot%202021-08-07%20at%2014.14.17@2x.png">
 
-<link rel="canonical" href="http://example.com/archives/2021/07/">
+<link rel="canonical" href="http://example.com/2021/08/07/8.5%20Leetcode/">
 
 
 <script id="page-configurations">
@@ -36,12 +42,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'en'
   };
 </script>
 
-  <title>Archive | Hexo</title>
+  <title> | Hexo</title>
   
 
 
@@ -139,50 +145,96 @@
         <div class="content-wrap">
           
 
-          <div class="content archive">
+          <div class="content post posts-expand">
             
 
+    
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <span class="collection-header">Um..! 4 posts in total. Keep on posting.</span>
-      </div>
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/08/07/8.5%20Leetcode/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-08-07 14:15:01" itemprop="dateCreated datePublished" datetime="2021-08-07T14:15:01+08:00">2021-08-07</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <span class="collection-header">2021</span>
+        <h2 id="85-leetcode"><a class="markdownIt-Anchor" href="#85-leetcode"></a> 8.5 Leetcode</h2>
+<h3 id="path-sum-ii"><a class="markdownIt-Anchor" href="#path-sum-ii"></a> Path Sum II</h3>
+<p>Given the <code>root</code> of a binary tree and an integer <code>targetSum</code>, return all <strong>root-to-leaf</strong> paths where each path’s sum equals <code>targetSum</code>.</p>
+<p>A <strong>leaf</strong> is a node with no children.</p>
+<img src="/Users/wendy/Library/Application Support/CleanShot/media/media_wAhqummgCH/CleanShot 2021-08-07 at 14.14.17@2x.png" alt="CleanShot 2021-08-07 at 14.14.17@2x" style="zoom:50%;" />
+<p><strong>Constraints:</strong></p>
+<ul>
+<li>The number of nodes in the tree is in the range <code>[0, 5000]</code>.</li>
+<li><code>-1000 &lt;= Node.val &lt;= 1000</code></li>
+<li><code>-1000 &lt;= targetSum &lt;= 1000</code></li>
+</ul>
+<p>解题思路：</p>
+<p>深度优先遍历整棵树，将树中从根节点到叶节点的所有路径都保存在临时结果数组中，如果发现整条路径的和与targetSum相匹配，则将该条路径放入最终的结果数组中。</p>
+<p>具体代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">pathSum</span>(<span class="params">self, root: TreeNode, targetSum: <span class="built_in">int</span></span>) -&gt; <span class="type">List</span>[<span class="type">List</span>[<span class="built_in">int</span>]]:</span></span><br><span class="line">        self.result = []</span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">recurPath</span>(<span class="params">root, result, nowSum</span>):</span></span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> root:</span><br><span class="line">                <span class="keyword">return</span></span><br><span class="line">            nowSum += root.val</span><br><span class="line">            result.append(root.val)</span><br><span class="line">        </span><br><span class="line">            <span class="keyword">if</span> root.left == <span class="literal">None</span> <span class="keyword">and</span> root.right == <span class="literal">None</span> <span class="keyword">and</span> nowSum == targetSum:</span><br><span class="line">                 self.result.append(result[:])</span><br><span class="line">            recurPath(root.left, result, nowSum)</span><br><span class="line">            recurPath(root.right, result, nowSum)</span><br><span class="line">            result.pop()</span><br><span class="line">        recurPath(root, [], <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> self.result</span><br></pre></td></tr></table></figure>
+<p>重点：</p>
+<ol>
+<li>深度优先遍历要首先遍历左子，直到最左的叶节点，然后一层一层的回退，来遍历右子节点</li>
+<li>在复制局部结果列表的时候，需要使用深拷贝，即result[:]，如果使用浅拷贝，那么最后的结果会是空列表。</li>
+<li></li>
+</ol>
+
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+    
+    
+    
 
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-07-22T17:39:00+08:00"
-              content="2021-07-22">
-          07-22
-        </time>
-      </div>
+      <footer class="post-footer">
 
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/07/22/Emotion-7-22/" itemprop="url">
-            <span itemprop="name">Emotion 7.22</span>
-          </a>
-      </div>
+        
 
-    </header>
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/07/22/Emotion-7-22/" rel="prev" title="Emotion 7.22">
+      <i class="fa fa-chevron-left"></i> Emotion 7.22
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
   </article>
-
-
-    </div>
-  </div>
   
   
-  
-
   
 
 
@@ -235,6 +287,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#85-leetcode"><span class="nav-number">1.</span> <span class="nav-text"> 8.5 Leetcode</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#path-sum-ii"><span class="nav-number">1.1.</span> <span class="nav-text"> Path Sum II</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
